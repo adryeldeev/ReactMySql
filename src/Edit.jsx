@@ -6,7 +6,7 @@ function Edit () {
     const {id} = useParams()
    const navigate = useNavigate()
     useEffect(()=>{
-        axios.get('http://localhost:8081/ler/'+ id)
+        axios.get('http://localhost:3001/ler/'+ id)
         .then(res =>{console.log(res)
             setValues( {...values, name: res.data[0].name, email: res.data[0].email, numero: res.data[0].numero})
     })
@@ -21,7 +21,7 @@ function Edit () {
 
     const handleEdit = (e)=>{
         e.preventDefault()
-        axios.put('http://localhost:8081/edit/'+ id, values)
+        axios.put('http://localhost:3001/edit/'+ id, values)
         .then(res =>{console.log(res)
         navigate('/')
         
