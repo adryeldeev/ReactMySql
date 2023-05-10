@@ -10,16 +10,22 @@ function Home (){
         .catch(err => console.log(err))
     },[])
 
-    const handleDelete = (id)=>{
-    axios.delete('http://localhost:8081/delete/'+id)
-    .then(res =>{
-        location.reload()
-    }).catch(err => console.log(err))
-    }
+    const handleDelete = (id) => {
+        axios.delete(`http://localhost:8081/delete/${id}`)
+          .then(() => {
+            // Crie uma nova lista sem o item excluído
+            const newData = data.filter(item => item.id !== id);
+            setData(newData);
+          })
+          .catch((error) => {
+            // Trate o erro aqui
+            console.error(error);
+          });
+      }
     return(
         <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
             <div className="w-50 bg-white rounded p-3">
-                <h2>Novo Cliente</h2>
+                <h2> Cliente</h2>
                 <div className="d-flex justify-content-end">
                     <Link to="/create" className="btn btn-sucess">Adiconar +</Link>
                 </div>

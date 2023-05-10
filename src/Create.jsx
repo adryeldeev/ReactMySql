@@ -6,7 +6,12 @@ function Create() {
         name: '',
         email: '',
         numero: ''
+
     })
+
+
+    
+
 
     const navigate = useNavigate();
 
@@ -35,9 +40,9 @@ function Create() {
                     <input type="email" placeholder="Ex: Email@email.com" className="form-control"
                     onChange={e => setValues({ ...values, email: e.target.value})}/>
                     </div>
-                    <div className="mb-3">
+                    <div className="mb-2">
                     <label htmlFor="">Celular</label>
-                    <input type="tel" placeholder="Ex: (XX) XXXXX-XXXX" className="form-control"
+                    <input type="number" placeholder="Ex: (XX) XXXXX-XXXX" className="form-control"
                     onChange={e => setValues({ ...values, numero: e.target.value})}/>
                     </div>
                     <button className="btn btn-sucess">Enviar</button>
