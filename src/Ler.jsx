@@ -7,7 +7,7 @@ function Ler (){
     const {id} = useParams()
     const [client, setClient] = useState([])
     useEffect(()=>{
-        axios.get('http://localhost:3001/ler/'+ id)
+        axios.get('https://backendmysql.herokuapp.com/ler/'+ id)
         .then(res =>{console.log(res)
             setClient(res.data[0])
     })
